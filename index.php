@@ -1,3 +1,3 @@
 <?php
-echo "hola mundo";
+echo "Ya queda poco para las minivacaciones";
 ?>
