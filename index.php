@@ -6,4 +6,5 @@ echo"y ahora escribo un mensaje mas";
 ?>
 <?php
 echo "añado mas codigo";
+echo "hola";
 ?>
