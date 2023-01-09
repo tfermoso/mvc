@@ -13,10 +13,10 @@ class Router{
 
     public function matchRoute(){
         $url=explode("/",$this->ruta);
-
+  
         $this->controller=($url[0]!=""?$url[0]:"Home")."Controller";
         $this->method=isset($url[1])?$url[1]:"index";
-
+        
         $ruta_controlador=__DIR__.'/controllers/'.$this->controller.'.php';
         if(file_exists($ruta_controlador)){
             require_once($ruta_controlador);
@@ -28,7 +28,12 @@ class Router{
     public function run(){
         $controller=new $this->controller();
         $method=$this->method;
-        $controller->$method();
+        if(method_exists($controller,$method)){
+            $controller->$method();
+        }else{
+            $controller->index();
+        }
+        
     }
 
 
