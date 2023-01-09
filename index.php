@@ -1,9 +1,7 @@
 <?php
-echo "hola mundo";
-?>
-<br>
-<?php
-echo "Pues ya estoy conectado";
+require_once("router.php");
 
 
-?>
+$ruta=isset($_GET["route"])?$_GET["route"]:"";
+$route=new Router($ruta);
+$route->run();
