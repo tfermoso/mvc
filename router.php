@@ -28,7 +28,12 @@ class Router{
     public function run(){
         $controller=new $this->controller();
         $method=$this->method;
-        $controller->$method();
+        if(method_exists($controller,$method)){
+            $controller->$method();
+        }else{
+            $controller->index();
+        }
+        
     }
 
 
