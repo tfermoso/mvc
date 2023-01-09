@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="<?=URL_PATH?>/Assets/css/login.css">
+    <script src="<?=URL_PATH?>/Assets/js/login.js"></script>
 </head>
 <body>
     <h1>Login</h1>
