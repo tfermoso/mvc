@@ -1,3 +1,3 @@
 <?php
-echo "hola mundo de Leonard";
+echo "hola mundo de Leonardo EQ";
 ?>
