@@ -23,6 +23,7 @@ class Router
             require_once($route_controller);
         } else {
             echo "Error 404: page not found";
+            die();
         }
     }
 

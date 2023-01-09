@@ -4,10 +4,15 @@ class LoginController
 {
     public function index()
     {
-        echo "Hola desde index del login";
+        if (isset($_POST["user"])) {
+            echo "Recibiendo Login";
+        } else {
+            require_once(__DIR__ . "./../views/login.view.php");
+        }
     }
-    public function form()
+
+    public function register()
     {
-        echo "Hola desde el form del Login";
+        require_once(__DIR__ . "./../views/register.view.php");
     }
 }
