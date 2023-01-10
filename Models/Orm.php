@@ -13,17 +13,10 @@ class Orm{
     }
 
     public function getAll(){
-        $conn=$this->db;
-        $sth = $conn->prepare('select * from profesores');
-            $sth->execute();
-            $profesores = $sth->fetchAll();
-            var_dump($profesores);
-            exit;
-       
-        /*
-        $stm=$this->db->prepared("SELECT * FROM {$this->tabla}");
+
+        $stm=$this->db->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();
         return $stm->fetchAll();
-        */
+   
     }   
 }
