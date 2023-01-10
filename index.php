@@ -11,10 +11,10 @@ $conn=new Database();
 $usr=new Usuario($conn->getConnection());
 $datos=array();
 $datos["nombre"]="PEPE";
-$datos["apellidos"]="Gonzalez";
-$datos["edad"]=43;
-$datos["curso"]="js";
-$orm->insertar($datos);
+$datos["email"]="Gonzalez";
+$datos["password"]="asdf";
+
+$usr->insertar($datos);
 
 
 echo "<pre>";
@@ -26,3 +26,6 @@ $ruta=isset($_GET["route"])?$_GET["route"]:"";
 $route=new Router($ruta);
 $route->run();
 
+// si quieres crear una nueva tabla en base de datos vas a usuarios php
+//copias el codigo de arriba y cambias nombre usuario(tabla)por el nombre de la nueva 
+//tabla creada
