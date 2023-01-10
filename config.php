@@ -7,7 +7,8 @@ $password = '';
 
 
 define("URL_PATH",$folder_path);
-define("HOST", $host);
-define("DBNAME", $dbname);
+define("HOST",$host);
+define("DBNAME",$dbname);
 define("DB_USER",$username);
 define("DB_PASSWORD",$password);
+
