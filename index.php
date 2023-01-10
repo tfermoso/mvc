@@ -14,7 +14,7 @@ $datos["nombre"]="Marta";
 $datos["email"]="marta@gmail.com";
 $datos["password"]="12345";
 
-$usr->getByid(1);
+$usr->insertar($datos);
 
 echo "<pre>";
 var_dump($usr->getAll());
