@@ -16,7 +16,8 @@ class Orm
 
     public function getAll()
     {
-        $stm = $this->db->prepare("SELECT * FROM {$this->tabla}");
+        $conn=$this->db;
+        $stm = $conn->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();
         return $stm->fetchAll();
     }
