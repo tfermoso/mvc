@@ -7,11 +7,11 @@ class Orm
     protected $db;
 
 
-    public function __construct($id, $tabla, $db)
+    public function __construct($id, $tabla, $conn)
     {
         $this->id = $id;
         $this->tabla = $tabla;
-        $this->db = $db;
+        $this->db = $conn;
     }
 
     public function getAll()
@@ -33,10 +33,11 @@ class Orm
     public function deleteByid($id)
     {
 
-        $stm = $this->db->prepare("DELETE * FROM {$this->tabla} WHERE id=:id");
+        $stm = $this->db->prepare("DELETE FROM {$this->tabla} WHERE id=:id");
         $stm->bindValue(":id", $id);
         $stm->execute();
     }
+
 
     public function insertar($data)
     {
