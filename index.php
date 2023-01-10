@@ -3,21 +3,22 @@ require_once("config.php");
 require_once("router.php");
 require_once("./Models/Database.php");
 require_once("./Models/Orm.php");
+require_once("./Models/Usuario.php");
 
 
 
 $conn=new Database();
-$orm=new Orm(15,"profesores",$conn->getConnection());
+$usr=new Usuario($conn->getConnection());
 $datos=array();
 $datos["nombre"]="Manolo";
-$datos["apellidos"]="AAAA";
-$datos["edad"]=43;
-$datos["curso"]="js";
-$orm->updateById(17,$datos);
+$datos["email"]="manolo@gmail.com";
+$datos["password"]="123445";
+
+$usr->insertar($datos);
 
 
 echo "<pre>";
-var_dump($orm->getAll());
+var_dump($usr->getAll());
 echo "</pre>";
 exit;
 
