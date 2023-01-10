@@ -23,4 +23,30 @@ class Orm{
         $stm->execute();
         return $stm->fetch();
     }
+    public function deleteById($id){
+        $stm=$this->db->prepare("delete from {$this->tabla} where id=:id");
+        $stm->bindValue(":id",$id);
+        $stm->execute();
+    }
+    public function insertar($data){
+        $sql="insert into {$this->tabla} ";
+        $campos="(";
+        $valores=" values (";
+        foreach($data as $key=>$value){
+            $campos.="{$key},";
+            $valores.=":{$key},";
+        }
+        $campos=substr($campos,0,-1).")";
+        $valores=substr($valores,0,-1).")";
+        $sql=$sql.$campos.$valores;
+        $stm=$this->db->prepare($sql);
+        foreach($data as $key=>$value){
+            $stm->bindValue(":{$key}",$value);
+        }
+        $stm->execute();
+
+
+
+        
+    }
 }
