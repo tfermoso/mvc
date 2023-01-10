@@ -16,9 +16,50 @@ class Orm
 
     public function getAll()
     {
-        $conn=$this->db;
-        $stm = $conn->prepare("SELECT * FROM {$this->tabla}");
+       
+        $stm = $this->db->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();
         return $stm->fetchAll();
     }
+
+    public function getByid($id)
+    {
+       $stm=$this->db->prepare("SELECT * FROM {$this->tabla} WHERE id=:id");
+       $stm->bindValue(":id",$id);
+       $stm->execute();
+       return $stm->fetch();
+    }
+
+    public function deleteByid($id)
+    {
+       
+        $stm = $this->db->prepare("DELETE * FROM {$this->tabla} WHERE id=:id");
+        $stm->bindValue(":id",$id);
+        $stm->execute();
+    }
+    
+    public function insertar($data)
+    {
+       
+        $sql="INSERT into {$this->tabla} ";
+        $campos="(";
+        $valores="values (";
+        foreach($data as $key=>$value){
+
+            $campos.="{$key},";
+            $valores.="{$value},";
+        }
+        $campos=substr($campos,0,-1).")";
+        $valores=substr($valores,0,-1).")";
+        $sql=$sql.$campos.$valores;
+        $stm=$this->db->prepare($sql);
+        $stm->execute();
+
+
+    }
+
 }
+
+
+
+
