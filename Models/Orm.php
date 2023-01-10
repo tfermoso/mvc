@@ -51,4 +51,20 @@ class Orm{
             $sql.="($key) =:{$key},";
         }
     }
+    public function updateById($id,$data){
+        $sql="update {$this->tabla} set ";
+        foreach($data as $key=>$value){
+            $sql.="{$key} = :{$key},";
+        }
+        $sql=substr($sql,0,-1);
+        $sql.=" where id=:id ";
+        $stm=$this->db->prepare($sql);
+        foreach($data as $key=>$value){
+            $stm->bindValue(":{$key}",$value);
+        }
+        $stm->bindValue(":id",$id);
+        $stm->execute();
+
+
+    }
 }
