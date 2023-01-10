@@ -21,7 +21,7 @@ class LoginController
             $datos["email"]=$_POST["email"];
             $datos["password"]=md5($_POST["password"],false);
             $usr->insertar($datos);
-            header("Location ");
+            header("Location ../");
         }
         require_once(__DIR__ . './../Views/register.view.php');
     }

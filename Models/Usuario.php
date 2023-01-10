@@ -5,4 +5,5 @@ class Usuario extends Orm{
     {
         parent::__construct("id","usuarios",$conn);
     }
+    
 }
