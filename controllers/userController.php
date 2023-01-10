@@ -1,6 +1,6 @@
 <?php
 
-class UsuarioController{
+class UserController{
 
     public function index(){
         echo "Usuario index";
