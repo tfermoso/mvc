@@ -49,15 +49,15 @@ clase Orm{
 
         
     }
-    función pública  updateById($id,$data){
+    public function updateById($id,$data){
         $sql="update {$this->tabla} set ";
-        foreach($data as $key=>$value ){
+        foreach($data as $key=>$value){
             $sql.="{$key} = :{$key},";
         }
         $sql=substr($sql,0,-1);
-        $sql.=" donde id=:id ";
+        $sql.=" where id=:id ";
         $stm=$this->db->prepare($sql);
-        foreach($data as $key=>$value ){
+        foreach($data as $key=>$value){
             $stm->bindValue(":{$key}",$value);
         }
         $stm->bindValue(":id",$id);
