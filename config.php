@@ -1,7 +1,7 @@
 <?php
 $folder_paht=dirname($_SERVER["SCRIPT_NAME"]);
 $host = 'localhost';
-$dbname = 'academia';
+$dbname = 'academia2';
 $username ='root';
 $password = '';
 
