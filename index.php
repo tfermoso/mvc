@@ -17,7 +17,7 @@ $datos["curso"]="css";
 $orm->insertar($datos);
 
 echo "<pre>";
-var_dump($orm->deleteByid(24));
+var_dump($orm->getAll());
 echo "</pre>";
 exit;
 
