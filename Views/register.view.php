@@ -15,7 +15,7 @@
 <body>
     <div class="contenedor">
         <h1>Registro</h1>
-        <form class="formulario_registro" action="" method="post">
+        <form id="registerform" class="formulario_registro" action="" method="post">
 
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="nombre">
