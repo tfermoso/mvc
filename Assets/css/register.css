@@ -1,0 +1,16 @@
+.contenedor{
+    width: 60%;
+    margin:100px auto;
+}
+
+.formulario_registro{
+    display: flex;
+    flex-direction: column;
+    border:1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.formulario_registro input{
+    margin-bottom: 10px;
+}
