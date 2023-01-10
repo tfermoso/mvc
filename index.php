@@ -10,11 +10,11 @@ $conn=new Database();
 $orm=new Orm(24,"profesores",$conn->getConnection());
 
 $datos=array();
-$datos["nombre"]="Pepe";
-$datos["apellidos"]="Garcia";
+$datos["nombre"]="Marta";
+$datos["apellidos"]="Miguelez";
 $datos["edad"]="35";
 $datos["curso"]="css";
-$orm->insertar($datos);
+$orm->updateByid(26,$datos);
 
 echo "<pre>";
 var_dump($orm->getAll());
