@@ -1,29 +1,29 @@
 <?php 
 
-class Orm{
-    protected $id;
-    protected $tabla;
-    protected $db;
+clase Orm{
+    $id protegido;
+    $tabla protegida;
+    $db protegido;
 
-    public function __construct($id,$tabla,$conn)
+    función pública  __construct($id,$tabla,$conn)
     {
         $this->id=$id;
         $this->tabla=$tabla;
         $this->db=$conn;
     }
 
-    public function getAll(){
+    función pública  getAll(){
         $stm=$this->db->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();
         return $stm->fetchAll();
     }   
-    public function getById($id){
+    función pública  getById($id){
         $stm=$this->db->prepare("select * from {$this->tabla} where id=:id");
         $stm->bindValue(":id",$id);
         $stm->execute();
         return $stm->fetch();
     }
-    public function deleteById($id){
+    función pública  deleteById($id){
         $stm=$this->db->prepare("delete from {$this->tabla} where id=:id");
         $stm->bindValue(":id",$id);
         $stm->execute();
@@ -31,16 +31,16 @@ class Orm{
     public function insertar($data){
         $sql="insert into {$this->tabla} ";
         $campos="(";
-        $valores=" values (";
-        foreach($data as $key=>$value){
-            $campos.="{$key},";
-            $valores.=":{$key},";
+        $valores=" valores (";
+        foreach($data as $key=>$value ){
+            $campos.="{$key}, ";
+            $valores.=":{$key}, ";
         }
         $campos=substr($campos,0,-1).")";
         $valores=substr($valores,0,-1).")";
-        $sql=$sql.$campos.$valores;
+        $sql=$sql. $campos. $valores;
         $stm=$this->db->prepare($sql);
-        foreach($data as $key=>$value){
+        foreach($data as $key=>$value ){
             $stm->bindValue(":{$key}",$value);
         }
         $stm->execute();
@@ -48,5 +48,21 @@ class Orm{
 
 
         
+    }
+    función pública  updateById($id,$data){
+        $sql="update {$this->tabla} set ";
+        foreach($data as $key=>$value ){
+            $sql.="{$key} = :{$key},";
+        }
+        $sql=substr($sql,0,-1);
+        $sql.=" donde id=:id ";
+        $stm=$this->db->prepare($sql);
+        foreach($data as $key=>$value ){
+            $stm->bindValue(":{$key}",$value);
+        }
+        $stm->bindValue(":id",$id);
+        $stm->execute();
+
+
     }
 }

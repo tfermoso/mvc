@@ -13,7 +13,7 @@ $datos["nombre"]="PEPE";
 $datos["apellidos"]="Gonzalez";
 $datos["edad"]=43;
 $datos["curso"]="js";
-$orm->insertar($datos);
+$orm->updateById(17,$datos);
 
 
 echo "<pre>";
