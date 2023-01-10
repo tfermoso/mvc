@@ -1,6 +1,8 @@
 <?php
-echo "hola mundo";
-echo"esto lo he escrito yo y ahora escribo otra cosa";
-echo"y ahora escribo un mensaje mas";
-echo "actualizado para esta tarde";
-?>
+require_once("config.php");
+require_once("router.php");
+
+
+$ruta=isset($_GET["route"])?$_GET["route"]:"";
+$route=new Router($ruta);
+$route->run();
