@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 class Orm{
     protected $id;
     protected $tabla;
@@ -18,12 +19,7 @@ class Orm{
             $profesores = $sth->fetchAll();
             var_dump($profesores);
             exit;
-       
-        /*
-        $stm=$this->db->prepared("SELECT * FROM {$this->tabla}");
-        $stm->execute();
-        return $stm->fetchAll();
-        */
+
     }   
 }
 ?>
