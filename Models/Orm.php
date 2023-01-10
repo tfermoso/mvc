@@ -1,5 +1,4 @@
 <?php 
-
 class Orm{
     protected $id;
     protected $tabla;
@@ -27,3 +26,4 @@ class Orm{
         */
     }   
 }
+?>
