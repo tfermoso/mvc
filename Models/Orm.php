@@ -43,13 +43,11 @@ class Orm{
         foreach($data as $key=>$value){
             $stm->bindValue(":{$key}",$value);
         }
-        $stm->execute();  
-    }
-    public function updateById($id, $data);{
-        $sql="update{$this->tabla} set";
-        foreach ($variable as $key => $value) {
-            $sql.="($key) =:{$key},";
-        }
+        $stm->execute();
+
+
+
+        
     }
     public function updateById($id,$data){
         $sql="update {$this->tabla} set ";
