@@ -9,11 +9,11 @@ require_once("./Models/Orm.php");
 $conn=new Database();
 $orm=new Orm(15,"profesores",$conn->getConnection());
 $datos=array();
-$datos["nombre"]="PEPE";
-$datos["apellidos"]="Gonzalez";
+$datos["nombre"]="Manolo";
+$datos["apellidos"]="AAAA";
 $datos["edad"]=43;
 $datos["curso"]="js";
-$orm->insertar($datos);
+$orm->updateById(17,$datos);
 
 
 echo "<pre>";
