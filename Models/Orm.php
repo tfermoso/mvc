@@ -46,7 +46,6 @@ class Orm{
         $stm->execute();
 
 
-
         
     }
     public function updateById($id,$data){
