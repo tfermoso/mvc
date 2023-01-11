@@ -5,6 +5,7 @@ require_once("./Models/database.php");
 require_once("./Models/Orm.php");
 require_once("./Models/Usuario.php");
 
+
 /*
 $conn=new Database();
 $usr=new Usuario($conn->getConnection());
@@ -21,6 +22,9 @@ var_dump($usr->getAll());
 echo "</pre>";
 exit;
 */
+
+
+
 
 $ruta=isset($_GET["route"])?$_GET["route"]:"";
 $route=new Router($ruta);
