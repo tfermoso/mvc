@@ -18,6 +18,14 @@ class Router
         $this->controller = ($url[0] != "" ? $url[0] : "Home") . "Controller";
         $this->method = isset($url[1]) ? $url[1] : "index";
 
+        if ($this->controller == "adminController") {
+            session_start();
+            if (!isset($_SESSION["username"])) {
+                header("Location: " . URL_PATH . "/login");
+                exit;
+            }
+        }
+
         $route_controller = __DIR__ . "/controllers/" . $this->controller . ".php";
         if (file_exists($route_controller)) {
             require_once($route_controller);

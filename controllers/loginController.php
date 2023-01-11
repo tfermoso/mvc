@@ -15,9 +15,10 @@ class LoginController
             if ($data) {
                 session_start();
                 $_SESSION["username"] = $data["username"];
-                header("Location: ".URL_PATH."/home");
-            } else{
-                echo "Usuario y/o contraseña incorrectos";
+                header("Location: " . URL_PATH . "/admin");
+                exit;
+            } else {
+                $error = "Wrong user/password combination";
             }
         }
         require_once(__DIR__ . "./../views/login.view.php");
@@ -37,7 +38,8 @@ class LoginController
             $user->insert($data);
 
             echo "Usuario registrado correctamente";
-            header("Location: ../");
+            header("Location: " . URL_PATH . "/login");
+            exit;
         }
         require_once(__DIR__ . "./../views/register.view.php");
     }

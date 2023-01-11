@@ -14,9 +14,14 @@
     <h1 class="form-title">Log into your account</h1>
     <form action="./login/form" method="post" class="login-form">
         <label for="user" class="form-label">Username</label>
-        <input type="text" name="user" id="" class="form-input" required placeholder="Username" autofocus>
+        <input type="text" name="user" class="form-input" required placeholder="Username" autofocus>
         <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" id="" class="form-input" required placeholder="Password">
+        <input type="password" name="password" class="form-input" required placeholder="Password">
+        <p class='error-text'><?php
+            if (isset($error)){
+                echo $error;
+            }
+        ?></p>
         <input type="submit" value="Login" class="form-submit">
         <span class="form-text">Don't you have an account? </span><a href="<?= URL_PATH ?>/login/register" class="form-link">Register here</a>
     </form>
