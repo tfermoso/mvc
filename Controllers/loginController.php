@@ -13,7 +13,7 @@ class LoginController
             if ($usuario) {
                 session_start();
                 $_SESSION["nombre"] = $usuario["nombre"];
-                header("Location :".URL_PATH."/home");
+                header("Location:".URL_PATH."/home");
             } else {
                 $error="Usuario o contraseña incorrecta";
                 require_once(__DIR__ . './../Views/login.view.php');
@@ -34,7 +34,7 @@ class LoginController
             $datos["email"] = $_POST["email"];
             $datos["password"] = md5($_POST["password"], false);
             $usr->insertar($datos);
-            header('Location : mvc');
+            header("Location:".URL_PATH."/login");
             exit;
         }
         require_once(__DIR__ . './../Views/register.view.php');
