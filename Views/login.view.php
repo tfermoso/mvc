@@ -21,7 +21,7 @@
             <input type="password" name="password" id="">
             <input type="submit" value="Login">
         </form>
-        <a href="./login/register">Si no tienes cuenta, registraté aquí</a>
+        <a href="./login/register">Si no tienes cuenta, registrate aquí</a>
     </div>
 </body>
 
