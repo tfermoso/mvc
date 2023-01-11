@@ -18,7 +18,7 @@ $orm->insertar($datos);
 
 
 echo "<pre>";
-var_dump($orm->getAll());
+var_dump($usr->getAll());
 echo "</pre>";
 exit;
 */

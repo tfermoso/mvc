@@ -34,7 +34,7 @@ class LoginController
             $datos["email"] = $_POST["email"];
             $datos["password"] = md5($_POST["password"], false);
             $usr->insertar($datos);
-            header('Location : mvc');
+            header("Location:".URL_PATH."/login");
             exit;
         }
         require_once(__DIR__ . './../Views/register.view.php');
