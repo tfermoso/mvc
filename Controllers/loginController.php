@@ -3,7 +3,12 @@
 class LoginController{
     public function index(){
         if(isset($_POST["nombre"])){
-            echo "recibiendo datos";
+            $nombre = $_POST["nombre"];
+            $pass = $_POST["password"];
+            $conn=new Database();
+            $usr=new Usuario($conn->getConnection());
+            $usuario->$usr->getUsuario($nombre, $pass);
+            echo $usuario;
         }else{
             require_once(__DIR__.'./../Views/login.view.php');
         }

@@ -11,8 +11,8 @@
 <body>
 <h1>LOGIN</h1>
 <form action="" method="post" id="form">
-    <label for="">Email:</label>
-    <input type="email" id="">
+    <label for="">Usuario</label>
+    <input type="text" name="nombre" id="">
     <label for="">Contraseña:</label>
     <input type="password" name="password" id="">
     <input type="submit" value="Login">
