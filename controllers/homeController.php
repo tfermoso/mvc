@@ -3,10 +3,6 @@ class HomeController
 {
     public function index()
     {
-        echo "Hola desde index de Home";
-    }
-    public function listar()
-    {
-        echo "Hola desde listar de Home";
+        require_once(__DIR__ . "./../views/home.view.php");
     }
 }
