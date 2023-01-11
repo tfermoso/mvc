@@ -15,6 +15,7 @@
     <input type="text" name="nombre" id="">
     <label for="">Contraseña:</label>
     <input type="password" name="password" id="">
+    <p><?php echo isset($error) ? $error : "";?></p>
     <input type="submit" value="Login">
 </form>
 <a href="./login/register">Si no tienes cuenta, registraté aquí</a>

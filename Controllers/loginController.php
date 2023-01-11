@@ -7,8 +7,15 @@ class LoginController{
             $pass = $_POST["password"];
             $conn=new Database();
             $usr=new Usuario($conn->getConnection());
-            $usuario->$usr->getUsuario($nombre, $pass);
-            echo $usuario;
+            $usuario=$usr->getUsuario($nombre, $pass);
+            if($usuario){
+                session_start();
+                $_SESSION["nombre"] = $usuario["nombre"];
+                header("Location:".URL_PATH."/home");
+            }else{
+                $error = "usuario o contraseña incorrecta";
+                require_once(__DIR__.'./../Views/login.view.php');
+            }
         }else{
             require_once(__DIR__.'./../Views/login.view.php');
         }
