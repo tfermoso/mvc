@@ -7,5 +7,6 @@ class HomeController{
     public function listar(){
         echo "hola desde listar del Home";
     }
+    
 }
 

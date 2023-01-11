@@ -1,4 +1,13 @@
 window.onload=function(){
+let formulario=$("#registerForm");
+formulario.submit((e)=>{
+        if($("#password").val()!=$($repassword).val()){
+            e.preventDefault();
+            alert("Las contraseñas son distintas");
+        }
+    })
+}
+    /*
     let formulario=document.getElementById("registerForm");
     formulario.onsubmit=function(e){
         let pass=document.getElementById("password").value;
@@ -9,5 +18,4 @@ window.onload=function(){
             e.preventDefault();
             alert("las contraseñas son distintas");
         }
-    }
-}
+    }*/
