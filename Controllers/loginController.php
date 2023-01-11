@@ -14,14 +14,20 @@ class LoginController
                 session_start();
                 $_SESSION["nombre"] = $usuario["nombre"];
                 //header("Location:".URL_PATH."/home");
-                require_once(__DIR__ . './../Views/admin.view.php');
+                require_once($_SERVER['DOCUMENT_ROOT'].URL_PATH.'/Views/admin.view.php');
             } else {
                 $error="Usuario o contraseña incorrecta";
-                require_once(__DIR__ . './../Views/login.view.php');
+                require_once($_SERVER['DOCUMENT_ROOT'].URL_PATH.'/Views/login.view.php');
 
             }
         } else {
-            require_once(__DIR__ . './../Views/login.view.php');
+                 
+            //var_dump($_SERVER['DOCUMENT_ROOT']);
+            //exit;
+
+           require_once($_SERVER['DOCUMENT_ROOT'].URL_PATH.'/Views/login.view.php');
+        
+        
         }
     }
     public function register()
@@ -38,6 +44,6 @@ class LoginController
             header("Location:".URL_PATH."/login");
             exit;
         }
-        require_once(__DIR__ . './../Views/register.view.php');
+        require_once($_SERVER['DOCUMENT_ROOT'].URL_PATH.'/Views/register.view.php');
     }
 }
