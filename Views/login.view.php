@@ -13,6 +13,7 @@
 <body>
     <div class="contenedor">
         <h1>Login</h1>
+        <p><?php echo isset($error)?$error:""; ?></p>
         <form class="formulario_registro" action="" method="post">
             <label for="">Usuario</label>
             <input type="text" name="nombre" id="">
