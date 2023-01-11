@@ -1,38 +1,42 @@
 <?php
-class LoginController{
-    public function index(){
-      
-        if(isset($_POST["nombre"])){
-            echo "recibiendo login";
-        }else{
-            require_once(__DIR__.'./../Views/login.view.php');
 
-        }
-        
-       
-       }
-       public function form(){
-        if(isset($_POST["nombre"])){
+class LoginController
+{
+    public function index()
+    {
+        if (isset($_POST["nombre"])) {
+            $nombre = $_POST["nombre"];
+            $pass = $_POST["password"];
             $conn = new Database();
-            $usr = new usuarios($conn->GetConnection());
-            $datos=array();
-            $datos["nombre"]=$_POST["nombre"];
-            $datos["email"]=$_POST["email"];
-            $datos["password"]==md5($_POST["password"],false);
+            $usr = new Usuarios($conn->getConnection());
+            $usuario = $usr->getUsuario($nombre, $pass);
+            if ($usuario) {
+                session_start();
+                $_SESSION["nombre"] = $usuario["nombre"];
+                header("Location :".URL_PATH."/home");
+            } else {
+                $error="Usuario o contraseña incorrecta";
+                require_once(__DIR__ . './../Views/login.view.php');
+
+            }
+        } else {
+            require_once(__DIR__ . './../Views/login.view.php');
+        }
+    }
+    public function register()
+    {
+        if (isset($_POST["nombre"])) {
+
+            $conn = new Database();
+            $usr = new Usuarios($conn->getConnection());
+            $datos = array();
+            $datos["nombre"] = $_POST["nombre"];
+            $datos["email"] = $_POST["email"];
+            $datos["password"] = md5($_POST["password"], false);
             $usr->insertar($datos);
-            header("Location ");
+            header('Location : mvc');
+            exit;
         }
         require_once(__DIR__ . './../Views/register.view.php');
     }
-        
-        
-      
-
-
-public function register(){
-    require_once(__DIR__.'./../Views/registerview.php');
 }
-
-}
-
-?>
