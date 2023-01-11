@@ -10,12 +10,11 @@ class LoginController
             $conn=new Database();
             $usr=new Usuario($conn->getConnection());
             $usuario=$usr->getUsuario($nombre,$pass);
-var_dump($usuario);
-exit;
+
             if ($usuario){
                 session_start();
                 $_SESSION["nombre"]=$usuario["nombre"];
-                header("Location: /home ");
+                header("Location: ".URL_PATH."/home");
             }
            else{
             echo"usuario o contraseña incorrecta";
