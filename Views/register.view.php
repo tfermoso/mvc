@@ -10,11 +10,11 @@
     <script src="<?= URL_PATH ?>/Assets/js/jquery-3.6.3.min.js"></script>
     <script src="<?= URL_PATH ?>/Assets/js/register.js"></script>
 
-
+ 
 </head>
-
+     
 <body>
-    <div class="contenedor">
+    <div class="contenedor">             
         <h1>Registro</h1>
         <form id="registerForm" class="formulario_registro" action="" method="post">
 
@@ -35,4 +35,4 @@
     </div>
 </body>
 
-</html>
+</html> 
