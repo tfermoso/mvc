@@ -23,9 +23,6 @@ echo "</pre>";
 exit;
 */
 
-
-
-
-$ruta=isset($_GET["route"])?$_GET["route"]:"";
-$route=new Router($ruta);
-$route->run();
+    $ruta=isset($_GET["route"])?$_GET["route"]:"";
+    $route=new Router($ruta);
+    $route->run();
