@@ -12,6 +12,16 @@ class LoginController{
     
     public function register()
     {
+        if (isset($_POST["nombre"])) {
+            $conn=new Database();
+            $usr=new Usuario($conn->getConnection());
+            $datos = array();
+            $datos["nombre"] = $_POST["nombre"];
+            $datos["email"] = $_POST["email"];
+            $datos["password"] =md5($_POST["nombre"],false);
+            $usr->insertar($datos);
+            header("location");
+        }
         require_once(__DIR__.'./../Views/register.view.php');
     }
     

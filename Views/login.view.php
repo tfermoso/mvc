@@ -16,8 +16,8 @@
     <label for="">Contraseña:</label>
     <input type="password" name="password" id="">
     <input type="submit" value="Login">
-
 </form>
+<a href="./login/register">Si no tienes cuenta, registraté aquí</a>
     
 </body>
 </html>

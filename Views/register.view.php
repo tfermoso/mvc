@@ -11,13 +11,13 @@
 <body>
     <div class="contenedor">
         <h1>Registro</h1>
-        <form class="formulario_registro" action="" method="post">
+        <form id="registerForm"class="formulario_registro" action="" method="post">
 
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="nombre">
 
             <label for="mail">Correo electrónico:</label>
-            <input type="email" id="mail" name="mail">
+            <input type="email" id="mail" name="email">
 
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password">
@@ -25,7 +25,7 @@
             <input type="password" id="repassword">
 
             <input type="submit" value="Register">
-    </form>
+     </form>
     <a href="../login">Si ya tienes cuenta, incia sesión</a>
     </div>
    
