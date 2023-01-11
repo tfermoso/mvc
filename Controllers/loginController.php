@@ -18,11 +18,13 @@ class LoginController
             }
            else{
             echo"usuario o contraseña incorrecta";
+            
             require_once(__DIR__ . './../Views/login.view.php');
 
            }
             
         } else {
+            
             require_once(__DIR__ . './../Views/login.view.php');
         }
     }
