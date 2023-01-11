@@ -5,13 +5,20 @@ class LoginController
     public function index()
     {
         if (isset($_POST["nombre"])) {
-            $nombre=$_POST["nombre"];
-            $pass=$_POST["password"];
-            $conn=new Database();
-            $usr=new Usuario($conn->getConnection());
-            $usuario=$usr->getUsuario($nombre,$pass);
-            var_dump($usuario);
-            
+            $nombre = $_POST["nombre"];
+            $pass = $_POST["password"];
+            $conn = new Database();
+            $usr = new Usuario($conn->getConnection());
+            $usuario = $usr->getUsuario($nombre, $pass);
+            if ($usuario) {
+                session_start();
+                $_SESSION["nombre"] = $usuario["nombre"];
+                header("Location :".URL_PATH."/home");
+            } else {
+                $error="Usuario o contraseña incorrecta";
+                require_once(__DIR__ . './../Views/login.view.php');
+
+            }
         } else {
             require_once(__DIR__ . './../Views/login.view.php');
         }
@@ -22,10 +29,10 @@ class LoginController
 
             $conn = new Database();
             $usr = new Usuario($conn->getConnection());
-            $datos=array();
-            $datos["nombre"]=$_POST["nombre"];
-            $datos["email"]=$_POST["email"];
-            $datos["password"]=md5($_POST["password"],false);
+            $datos = array();
+            $datos["nombre"] = $_POST["nombre"];
+            $datos["email"] = $_POST["email"];
+            $datos["password"] = md5($_POST["password"], false);
             $usr->insertar($datos);
             header('Location : mvc');
             exit;
