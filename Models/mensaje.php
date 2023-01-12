@@ -1,32 +1,8 @@
 <?php
 
-class Mensaje extends Orm {
-
+class Mensaje extends Orm{
     public function __construct($conn)
     {
         parent::__construct("id", "mensajes", $conn);
     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
