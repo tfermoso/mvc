@@ -8,7 +8,7 @@ $username = 'root';
 $password = '';
 
 
-
+define("PROJECT_NAME","Formacom");
 define("URL_PATH",$folder_path);
 define("HOST",$host);
 define("DBNAME",$dbname);
