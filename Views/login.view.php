@@ -6,21 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="<?= URL_PATH ?>/Assets/css/login.css">
-    <script src="<?= URL_PATH ?>/Assets/js/login.js"></script>
+    <link rel="stylesheet" href="<?= URL_PATH ?>/Assets/css/register.css">
+   
 </head>
 
 <body>
-    <h1>Login</h1>
-    <form action="" method="post">
-        <label for="">Usuario</label>
-        <input type="text" name="nombre" id="">
-        <label for="">Password</label>
-        <input type="password" name="password" id="">
-        <input type="submit" value="Login">
-    </form>
-    <br>
-    <a href="./login/register">Si no tienes cuenta, registrate aquí</a>
+    <div class="contenedor">
+        <h1>Login</h1>
+        <p><?php echo isset($error)?$error:""; ?></p>
+        <form class="formulario_registro" action="" method="post">
+            <label for="">Usuario</label>
+            <input type="text" name="nombre" id="">
+            <label for="">Password</label>
+            <input type="password" name="password" id="">
+            <input type="submit" value="Login">
+        </form>
+        <a href="./login/register">Si no tienes cuenta, registrate aquí</a>
+    </div>
 </body>
 
 </html>

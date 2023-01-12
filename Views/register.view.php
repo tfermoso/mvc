@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="<?= URL_PATH ?>/Assets/css/register.css">
+    <script src="<?= URL_PATH ?>/Assets/js/jquery-3.6.3.min.js"></script>
     <script src="<?= URL_PATH ?>/Assets/js/register.js"></script>
 
 
@@ -29,8 +30,8 @@
             <input type="password" id="repassword">
 
             <input type="submit" value="Register">
-        </form>
-        <a href="../login">Si ya tienes cuenta, incia sesión</a>
+    </form>
+    <a href="../login">Si ya tienes cuenta, incia sesión</a>
     </div>
 </body>
 
