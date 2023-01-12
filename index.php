@@ -7,6 +7,7 @@ require_once("router.php");
 require_once("./models/database.php");
 require_once("./models/orm.php");
 require_once("./models/user.php");
+require_once("./models/message.php");
 
 
 $route = isset($_GET["route"]) ? $_GET["route"] : "";

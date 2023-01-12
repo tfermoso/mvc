@@ -14,6 +14,7 @@ class LoginController
 
             if ($data) {
                 session_start();
+                $_SESSION["id_user"] = $data["id"];
                 $_SESSION["username"] = $data["username"];
                 header("Location: " . URL_PATH . "/admin");
                 exit;
@@ -42,5 +43,11 @@ class LoginController
             exit;
         }
         require_once(__DIR__ . "./../views/register.view.php");
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header("Location: " . URL_PATH . "/login");
     }
 }

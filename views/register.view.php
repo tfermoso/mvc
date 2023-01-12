@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= URL_PATH ?>/assets/css/login.css">
-    <script src="<?= URL_PATH ?>/assets/js/jquery-3.6.3.min.js"></script>
+    <script src="<?= URL_PATH ?>/assets/js/jquery.min.js"></script>
     <script src="<?= URL_PATH ?>/assets/js/register.js"></script>
     <title>Register</title>
 </head>
