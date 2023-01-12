@@ -15,6 +15,10 @@ define("DB_PASSWORD",$password);
 
 
 
+define("PROJECT_NAME","Formacom");
+
+
+
 
 
 
