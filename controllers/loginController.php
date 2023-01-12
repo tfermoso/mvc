@@ -5,7 +5,20 @@ class LoginController
     public function index()
     {
         if (isset($_POST["nombre"])) {
-            echo "recibiendo login";
+            $nombre = $_POST["nombre"];
+            $pass = $_POST["password"];
+            $conn = new Database();
+            $usr = new Usuario($conn->getConnection());
+            $usuario = $usr->getUsuario($nombre, $pass);
+            if ($usuario) {
+                session_start();
+                $_SESSION["nombre"] = $usuario["nombre"];
+                header("Location:".URL_PATH."/home");
+            } else {
+                $error="Usuario o contraseña incorrecta";
+                require_once(__DIR__ . './../Views/login.view.php');
+
+            }
         } else {
             require_once(__DIR__ . './../Views/login.view.php');
         }
@@ -21,7 +34,8 @@ class LoginController
             $datos["email"] = $_POST["email"];
             $datos["password"] = md5($_POST["password"], false);
             $usr->insertar($datos);
-            header("Location ");
+            header("Location:".URL_PATH."/login");
+            exit;
         }
         require_once(__DIR__ . './../Views/register.view.php');
     }
