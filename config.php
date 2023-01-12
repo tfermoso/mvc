@@ -12,3 +12,6 @@ define("DBNAME",$dbname);
 define("DB_USER",$username);
 define("DB_PASSWORD",$password);
 
+
+define("PROJECT_NAME","Formacom");
+
