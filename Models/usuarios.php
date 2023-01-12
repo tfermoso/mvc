@@ -24,6 +24,13 @@ class usuarios extends Orm
         }
 
         }
+
+    public function getAlllessMe($id){
+        $usuarios=$this->getAll();
+        $lista_usuarios=array();
+        foreach($usuarios as $key=>$valores);
+
+    }
     
     
    
