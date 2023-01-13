@@ -26,9 +26,10 @@ class usuarios extends Orm
         }
 
     public function getAlllessMe($id){
-        $usuarios=$this->getAll();
-        $lista_usuarios=array();
-        foreach($usuarios as $key=>$valores);
+        $stm=$this->db->prepare("SELECT * FROM usuarios where id!=:id");
+        $stm->bindValue(":id",$id);
+        $stm->execute();
+        return $stm->fetchAll();
 
     }
     
