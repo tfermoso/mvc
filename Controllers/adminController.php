@@ -2,7 +2,8 @@
 
 class AdminController{
     public function index(){
-        $user_name=$_SESSION ["nombre"];
+        session_start();
+        $user_name=$_SESSION["nombre"];
         require_once(__DIR__ . './../Views/admin.view.php');
     }
     public function listar(){
