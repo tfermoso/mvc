@@ -829,11 +829,8 @@
       </div>
       <!-- /.content-header -->
 
-      <!-- Main content -->
-      <section class="content">
+<?php echo $content; ?>
 
-      </section>
-      <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
 
