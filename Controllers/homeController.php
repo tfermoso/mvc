@@ -8,4 +8,3 @@ class HomeController{
         echo "Hola desde listar del Home";
     }
 }
-?>

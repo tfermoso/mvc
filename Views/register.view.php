@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="<?= URL_PATH ?>/Assets/css/register.css">
+    <script src="<?= URL_PATH ?>/Assets/js/jquery-3.6.3.min.js"></script>
     <script src="<?= URL_PATH ?>/Assets/js/register.js"></script>
 
 
@@ -15,13 +16,13 @@
 <body>
     <div class="contenedor">
         <h1>Registro</h1>
-        <form class="formulario_registro" action="" method="post">
+        <form id="registerForm" class="formulario_registro" action="" method="post">
 
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="nombre">
 
             <label for="mail">Correo electrónico:</label>
-            <input type="email" id="mail" name="mail">
+            <input type="email" id="mail" name="email">
 
             <label for="password">Contraseña</label>
             <input type="password" id="password" name="password">

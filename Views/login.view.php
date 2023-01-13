@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +13,7 @@
 <body>
     <div class="contenedor">
         <h1>Login</h1>
+        <p><?php echo isset($error)?$error:""; ?></p>
         <form class="formulario_registro" action="" method="post">
             <label for="">Usuario</label>
             <input type="text" name="nombre" id="">
@@ -21,7 +21,7 @@
             <input type="password" name="password" id="">
             <input type="submit" value="Login">
         </form>
-        <a href="./login/register">Si no tienes cuenta, registraté aquí</a>
+        <a href="./login/register">Si no tienes cuenta, registrate aquí</a>
     </div>
 </body>
 
