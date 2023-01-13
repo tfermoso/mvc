@@ -1,14 +1,21 @@
 <?php
 
-class AdminController
+class AdminController extends Controller
 {
+    private $mensajes;
+    public function __construct()
+    {
+        $conn = new Database();
+        $msj = new Mensaje($conn->getConnection());
+        $this->mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
+    }
+
     public function index()
     {
         $user_name = $_SESSION["nombre"];
-        $conn = new Database();
-        $msj = new Mensaje($conn->getConnection());
-        $mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
-        require_once(__DIR__ . './../Views/Admin/admin.view.php');
+        $datos=array();
+        $datos["mensajes"]=$this->mensajes;
+        $this->render("Admin/admin",$datos,"Admin/layout/admin");
     }
     public function nuevomensaje()
     {
@@ -23,6 +30,7 @@ class AdminController
             $usr->insertar($datos);
             header("Location:".URL_PATH."/admin");
         } else {
+
             $user_name = $_SESSION["nombre"];
             $conn = new Database();
             $usr = new Usuario($conn->getConnection());
@@ -31,7 +39,12 @@ class AdminController
             foreach ($usuarios as $key => $value) {
                 $options .= "<option value=" . $value['id'] . ">" . $value['nombre'] . "</option>";
             }
-            require_once(__DIR__ . './../Views/Admin/admin_nuevomensaje.view.php');
+            $datos=array();
+            $datos["mensajes"]=$this->mensajes;
+            $datos["options"]=$options;
+            $datos["usuarios"]=$usuarios;
+            $this->render("Admin/admin_nuevomensaje",$datos,"Admin/layout/admin");
+
         }
     }
 }
