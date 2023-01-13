@@ -8,7 +8,7 @@ class AdminController
         $conn = new Database();
         $msj = new Mensaje($conn->getConnection());
         $mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
-        require_once(__DIR__ . './../Views/admin.view.php');
+        require_once(__DIR__ . './../Views/Admin/admin.view.php');
     }
     public function nuevomensaje()
     {
@@ -31,7 +31,7 @@ class AdminController
             foreach ($usuarios as $key => $value) {
                 $options .= "<option value=" . $value['id'] . ">" . $value['nombre'] . "</option>";
             }
-            require_once(__DIR__ . './../Views/admin_nuevomensaje.view.php');
+            require_once(__DIR__ . './../Views/Admin/admin_nuevomensaje.view.php');
         }
     }
 }
