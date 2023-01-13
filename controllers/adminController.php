@@ -1,13 +1,21 @@
 <?php
-class AdminController
+class AdminController extends Controller
 {
-    public function index()
+    private $messages;
+
+    public function __construct()
     {
         $db = new Database;
         $msg = new Message($db->getConnection());
-        $messages = $msg->getAllByIdDestinyUser($_SESSION["id_user"]);
+        $this->messages = $msg->getAllByIdDestinyUser($_SESSION["id_user"]);
+    }
 
-        require_once(__DIR__ . "./../views/admin.view.php");
+    public function index()
+    {
+        $params = array();
+        $params["messages"] = $this->messages;
+
+        $this->render("admin/admin", $params, "admin/layout/admin");
     }
 
     public function newmessage()
@@ -29,8 +37,14 @@ class AdminController
             foreach ($users as $key => $value) {
                 $options .= "<option value=" . $value['id'] . ">" . $value['username'] . "</option>";
             }
+            $params=array();
+            $params["messages"]=$this->messages;
+            $params["options"]=$options;
+            $params["users"]=$users;
+
+            $this->render("admin/adminNewMessage", $params, "admin/layout/admin");
         }
 
-        require_once(__DIR__ . "./../views/adminNewMessage.view.php");
+        
     }
 }

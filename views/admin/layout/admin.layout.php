@@ -55,9 +55,43 @@
           </form>
         </div>
       </li>
-      
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+          <i class="far fa-comments"></i>
+          <span class="badge badge-danger navbar-badge"><?php echo count($messages); ?></span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- Message Start -->
+          <?php
+          foreach ($messages as $key => $value) {
+          ?>
+          <a href="#" class="dropdown-item">
+            <div class="media">
+              <img src="<?= URL_PATH ?>/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <div class="media-body">
+                <h3 class="dropdown-item-title">
+                  <?php echo $messages[$key]["username"]; ?>
+                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                </h3>
+                <p class="text-sm"> <?php echo $messages[$key]["message"]; ?> </p>
+                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> <?php echo $messages[$key]["date"]; ?> </p>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-divider"></div>
+          <?php
+          }
+          ?>
+          <!-- Message End -->
+          <div class="dropdown-divider"></div>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <div class="dropdown-divider"></div>
+          <a href="<?= URL_PATH ?>/admin/newmessage" class="dropdown-item dropdown-footer">Send message</a>
+        </div>
+        
+      </li>
 
-      
       <!-- Expand Menu -->
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -78,7 +112,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="dist/img/logo.jfif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="<?= URL_PATH ?>/dist/img/logo.jfif" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><?=PROJECT_NAME ?></span>
     </a>
 
@@ -87,7 +121,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= URL_PATH ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?=$_SESSION["username"];?></a>
@@ -243,18 +277,10 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
-        <form action="" method="post">
-          <label for="">Destination</label>
-          <select name="destiny_user" id="">
-          
-           <?=$options?>
-            
-          </select>
-          <textarea name="message" id="" cols="30" rows="5" placeholder="Message...."></textarea>
-          <input type="submit" value="Send">
-        </form>
-    </section>
+
+    <?php echo $content; ?>
+
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
