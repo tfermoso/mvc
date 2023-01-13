@@ -5,6 +5,7 @@ require_once("./Models/Database.php");
 require_once("./Models/Orm.php");
 require_once("./Models/Usuario.php");
 require_once("./Models/Mensaje.php");
+require_once("./controllers/controller.php");
 
 /*
 
