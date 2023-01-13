@@ -10,8 +10,9 @@ class AdminController
     }
     public function nuevomensaje()
     {
-        if (isset($_POST["usr_destino"])) {
         
+        if (isset($_POST["usr_destino"])) {
+            
             $conn = new Database();
             $usr = new Mensaje($conn->getConnection());
             $datos=array();
