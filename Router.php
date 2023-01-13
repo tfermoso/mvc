@@ -18,7 +18,7 @@ class Router{
 
         if($this->controller=="adminController"){
             if(isset($_SESSION["nombre"])){
-                header("location");
+                header("Location: ".URL_PATH."/login");
             }
         }
         

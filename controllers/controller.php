@@ -2,13 +2,13 @@
 
 class controller
 {
-    protected function render($path,$parameters=[],$layout)
+    protected function render($path,$parameters,$layout="")
     {
-        
+        extract($parameters);
         ob_start();
-        require_once(__DIR__."/../View/".$path.".view.php");
+        require_once(__DIR__."/../Views/".$path.".view.php");
         $content=ob_get_clean();
-        require_once(__DIR__."/../View/".$layout.".layout.php");
+        require_once(__DIR__."/../Views/".$layout.".layout.php");
 
 
     }

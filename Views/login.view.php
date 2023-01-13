@@ -12,16 +12,16 @@
 <body>
     <div class="contenedor">
     <h1>login</h1>
-    <form action="" method="post"><label for="">Usuario</label>
-    <input type="text" name="nombre" id="" >
-    <label for="">Password</label>
-    <input type="text" name="password" id="">
-    <input type="submit" value="Login">
-    </form>
-    <a href="../login">si ya tienes cuenta inicia sesion</a>
+    <p><?php echo isset($error)?$error:""; ?></p>
+    <form class="formulario_registro" action="" method="post">
+            <label for="">Usuario</label>
+            <input type="text" name="nombre" id="">
+            <label for="">Password</label>
+            <input type="password" name="password" id="">
+            <input type="submit" value="Login">
+        </form>
+        <a href="./login/register">Si no tienes cuenta, registrate aquí</a>
     </div>
-    <br>
-    <img class="imagi" src="Assets/images/login.jpg" alt="">
     
     
 </body>

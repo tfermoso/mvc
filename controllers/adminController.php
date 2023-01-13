@@ -1,25 +1,25 @@
-
 <?php
 
-class AdminController extends controller
-
+class AdminController extends Controller
 {
     private $mensajes;
     public function __construct()
-
-    {   
-        $conn = new Database();
-        $msj = new Mensajes($conn->getConnection());
-        $this->mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
-        
-    }
-    public function index()
+   
     {
-        $user_name = $_SESSION["nombre"];
         $conn = new Database();
         $msj = new Mensajes($conn->getConnection());
-        $mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
-        $this->render("Admin/admin",Array(),"Admin/layout/admin");
+        session_start();
+        $this->mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
+    
+    }
+
+    public function index()
+    {   
+        //require_once(__DIR__ . './../Views/Admin/admin.view.php');
+        $datos=array();
+        $datos["mensajes"]=$this->mensajes;
+        $datos["user_name"]=$_SESSION["nombre"];
+        $this->render("Admin/admin",$datos,"Admin/layout/admin");
     }
     public function nuevomensaje()
     {
@@ -34,25 +34,32 @@ class AdminController extends controller
             $usr->insertar($datos);
             header("Location:".URL_PATH."/admin");
         } else {
+
             $user_name = $_SESSION["nombre"];
             $conn = new Database();
             $usr = new Usuarios($conn->getConnection());
             $usuarios = $usr->getAllLessMe($_SESSION["idusuario"]);
             $options = "";
-            foreach($usuarios as $key => $value) {
+            foreach ($usuarios as $key => $value) {
                 $options .= "<option value=" . $value['id'] . ">" . $value['nombre'] . "</option>";
             }
-            require_once(__DIR__ . './../Views/admin_nuevomensaje.view.php');
+            $datos=array();
+            $datos["mensajes"]=$this->mensajes;
+            $datos["options"]=$options;
+            $datos["usuarios"]=$usuarios;
+            $datos["user_name"]=$_SESSION["nombre"];
+            //require_once(__DIR__ . './../Views/Admin/admin_nuevomensaje.view.php');
+            $this->render("Admin/admin_nuevomensaje",$datos,"Admin/layout/admin");
+
         }
     }
+
+    public function close(){
+        session_destroy();
+        header("Location: ".URL_PATH."/login");
+    }
+
 }
-
-
-
-
-
-
-
 
 
 ?>

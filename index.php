@@ -7,12 +7,7 @@ require_once("./Models/usuarios.php");
 require_once("./Models/Mensajes.php");
 require_once("./controllers/controller.php");
 
-$parameters=array();
-$parameters["mensajes"]="algo";
-$parameters["otros"]="otra cosa";
-foreach($parameters as $key =>$value){
-    $$key=$value;
-}
+
 
 
 /*
