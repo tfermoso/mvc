@@ -1,5 +1,6 @@
 <?php
 
+
 class AdminController extends Controller
 {
     private $mensajes;
@@ -11,10 +12,11 @@ class AdminController extends Controller
     }
 
     public function index()
-    {
-        $user_name = $_SESSION["nombre"];
+    {   
+        //require_once(__DIR__ . './../Views/Admin/admin.view.php');
         $datos=array();
         $datos["mensajes"]=$this->mensajes;
+        $datos["user_name"]=$_SESSION["nombre"];
         $this->render("Admin/admin",$datos,"Admin/layout/admin");
     }
     public function nuevomensaje()
@@ -43,8 +45,15 @@ class AdminController extends Controller
             $datos["mensajes"]=$this->mensajes;
             $datos["options"]=$options;
             $datos["usuarios"]=$usuarios;
+            $datos["user_name"]=$_SESSION["nombre"];
+            //require_once(__DIR__ . './../Views/Admin/admin_nuevomensaje.view.php');
             $this->render("Admin/admin_nuevomensaje",$datos,"Admin/layout/admin");
 
         }
+    }
+
+    public function close(){
+        session_destroy();
+        header("Location: ".URL_PATH."/login");
     }
 }
