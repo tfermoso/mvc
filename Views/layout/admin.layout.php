@@ -809,10 +809,6 @@
       <!-- /.sidebar -->
     </aside>
 
-<?php echo $content; ?>
-
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -833,7 +829,16 @@
       </div>
       <!-- /.content-header -->
 
+<?php echo $content; ?>
 
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 
     <!-- Main Footer -->
     <footer class="main-footer">
