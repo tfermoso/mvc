@@ -114,6 +114,7 @@
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          <a href="admin/nuevomensaje" class="dropdown-item dropdown-footer">Enviar nuevo mensaje</a>
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->

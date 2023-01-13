@@ -19,4 +19,11 @@ class Usuario extends Orm
             var_dump($ex);
         }
     }
+
+    public function getAllLessMe($id){
+        $stm=$this->db->prepare("SELECT * FROM usuarios where id!=:id");
+        $stm->bindValue(":id",$id);
+        $stm->execute();
+        return $stm->fetchAll();
+    }
 }

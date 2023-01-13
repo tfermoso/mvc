@@ -853,7 +853,7 @@
     <section class="content">
         <form action="" method="post">
           <label for="">Destinatario</label>
-          <select name="" id="">
+          <select name="usr_destino" id="">
           
            <?=$options?>
             

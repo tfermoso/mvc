@@ -13,6 +13,7 @@ class LoginController
             if ($usuario) {
                 session_start();
                 $_SESSION["nombre"] = $usuario["nombre"];
+                $_SESSION["idusuario"]=$usuario["id"];
                 header("Location:".URL_PATH."/home");
             } else {
                 $error="Usuario o contraseña incorrecta";
