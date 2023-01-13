@@ -9,6 +9,11 @@ class Message extends Orm
 
     public function getAllByIdDestinyUser($id_user_destiny)
     {
-        $stm = $this->dbconn->prepare("SELECT * FROM Messages WHERE id_user_destiny=:id");
+        $stm=$this->dbconn->prepare("SELECT U.username,M.message,M.date  
+                        FROM messages as M inner join users as U on M.id_user_origin=U.id
+                        WHERE id_user_destiny=:id");
+        $stm->bindValue(":id",$id_user_destiny);
+        $stm->execute();
+        return $stm->fetch();
     }
 }

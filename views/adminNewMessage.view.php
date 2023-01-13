@@ -332,7 +332,7 @@
     <section class="content">
         <form action="" method="post">
           <label for="">Destination</label>
-          <select name="" id="">
+          <select name="destiny_user" id="">
           
            <?=$options?>
             

@@ -19,7 +19,7 @@ class User extends Orm
     }
 
     public function getAllBut($id){
-        $stm=$this->dbconn->prepare("SELECT * FROM usuarios where id!=:id");
+        $stm=$this->dbconn->prepare("SELECT * FROM users where id!=:id");
         $stm->bindValue(":id",$id);
         $stm->execute();
         return $stm->fetchAll();

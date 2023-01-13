@@ -25,7 +25,7 @@ class AdminController
             $users = $user->getAllBut($_SESSION["id_user"]);
             $options = "";
             foreach ($users as $key => $value) {
-                $options .= "<option value=" . $value['id'] . ">" . $value['nombre'] . "</option>";
+                $options .= "<option value=" . $value['id'] . ">" . $value['username'] . "</option>";
             }
         }
 
