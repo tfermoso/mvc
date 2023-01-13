@@ -38,6 +38,7 @@ class Orm{
         $campos=substr($campos,0,-1).")";
         $valores=substr($valores,0,-1).")";
         $sql=$sql.$campos.$valores;
+
         $stm=$this->db->prepare($sql);
         foreach($data as $key=>$value){
             $stm->bindValue(":{$key}",$value);
