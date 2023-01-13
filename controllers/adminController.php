@@ -3,7 +3,9 @@ class AdminController
 {
     public function index()
     {
-        $username = $_SESSION["username"];
+        $db = new Database;
+        $msg = new Message($db->getConnection());
+        $messages = $msg->getAllByIdDestinyUser($_SESSION["id_user"]);
 
         require_once(__DIR__ . "./../views/admin.view.php");
     }

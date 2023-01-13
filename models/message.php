@@ -14,6 +14,6 @@ class Message extends Orm
                         WHERE id_user_destiny=:id");
         $stm->bindValue(":id",$id_user_destiny);
         $stm->execute();
-        return $stm->fetch();
+        return $stm->fetchAll();
     }
 }
