@@ -1,6 +1,5 @@
 <?php
 
-
 class AdminController extends Controller
 {
     private $mensajes;
