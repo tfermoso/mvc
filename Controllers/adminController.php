@@ -28,7 +28,7 @@ class AdminController extends Controller
             $datos["id_usuario_destino"]=$_POST["usr_destino"];
             $datos["mensaje"]=$_POST["mensaje"];
             $usr->insertar($datos);
-            header("Location:".URL_PATH."/admin");
+            header("Location:".URL_PATH."/Admin/admin");
         } else {
 
             $user_name = $_SESSION["nombre"];
