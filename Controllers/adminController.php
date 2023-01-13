@@ -50,4 +50,9 @@ class AdminController extends Controller
 
         }
     }
+
+    public function close(){
+        session_destroy();
+        header("Location: ".URL_PATH."/login");
+    }
 }
