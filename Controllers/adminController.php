@@ -7,7 +7,7 @@ class AdminController
         $user_name = $_SESSION["nombre"];
         $conn = new Database();
         $msj = new Mensaje($conn->getConnection());
-        $mensajes=$msj->getAllByIdUserDestino($_SESSION["idsuario"]);
+        $mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
         require_once(__DIR__ . './../Views/admin.view.php');
     }
     public function nuevomensaje()

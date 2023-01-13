@@ -9,6 +9,6 @@ class Mensaje extends Orm{
         $stm=$this->db->prepare("SELECT U.nombre,M.mensaje,M.fecha_enviio  FROM mensajes as M inner join usuarios as U on M.id_usuario_origen=U.id  where id_usuario_destino=:id");
         $stm->bindValue(":id",$id);
         $stm->execute();
-        return $stm->fetch();
+        return $stm->fetchAll();
     }
 }
