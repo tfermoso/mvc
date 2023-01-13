@@ -853,10 +853,11 @@
     <section class="content">
         <form action="" method="post">
           <label for="">Destinatario</label>
-          <select name="" id="">
-            <option value="1">Juan</option>
-            <option value="2">Pedro</option>
-            <option value="3">Maria</option>
+          <select name="usr_destino" id="">
+          
+           <?=$options?>
+            
+           
           </select>
           <textarea name="mensaje" id="" cols="30" rows="5" placeholder="Mensaje...."></textarea>
           <input type="submit" value="Enviar">

@@ -19,11 +19,12 @@ class Router{
         
         if($this->controller=="adminController"){
             session_start();
-            if(!isset($_SESSION["nombre"])){
-                header("Location:".URL_PATH."/login");
+            if(! isset($_SESSION["nombre"])){
+                header("Location: ".URL_PATH."/login");
                 exit;
             }
         }
+
         $ruta_controlador=__DIR__.'/controllers/'.$this->controller.'.php';
         if(file_exists($ruta_controlador)){
             require_once($ruta_controlador);
@@ -42,8 +43,6 @@ class Router{
         }
         
     }
-
-
 
 
 }
