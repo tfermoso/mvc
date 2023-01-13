@@ -7,6 +7,10 @@ require_once("./Models/Usuario.php");
 require_once("./Models/Mensaje.php");
 require_once("./controllers/controller.php");
 
+
+
+
+
 $ruta=isset($_GET["route"])?$_GET["route"]:"";
 $route=new Router($ruta);
 $route->run();

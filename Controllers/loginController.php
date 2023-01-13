@@ -14,7 +14,7 @@ class LoginController
                 session_start();
                 $_SESSION["nombre"] = $usuario["nombre"];
                 $_SESSION["idusuario"]=$usuario["id"];
-                header("Location:".URL_PATH."/Admin/admin");
+                header("Location:".URL_PATH."/admin");
             } else {
                 $error="Usuario o contraseña incorrecta";
                 require_once(__DIR__ . './../Views/login.view.php');
