@@ -24,7 +24,7 @@ class ApiController
         $conn = new Database();
         $msg = new Mensaje($conn->getConnection());
         $datos = array();
-        $datos["id_usuario_origen"] = $_POST["id_usuario_origen"];
+        $datos["id_usuario_origen"] = $_POST["id"];
         $datos["id_usuario_destino"] = $_POST["id_usuario_destino"];
         $datos["mensaje"] = $_POST["mensaje"];
         $msg->insertar($datos);
