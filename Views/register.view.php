@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar</title>
-    <link rel="stylesheet" href="<?=URL_PATH?>/Assets/css/register.css">
-    <script src="<?=URL_PATH?>/Assets/js/jquery-3.6.3.min.js"></script>
-    <script src="<?=URL_PATH?>/Assets/js/register.js"></script>
+    <title>Register</title>
+    <link rel="stylesheet" href="<?= URL_PATH ?>/Assets/css/register.css">
+    <script src="<?= URL_PATH ?>/Assets/js/jquery-3.6.3.min.js"></script>
+    <script src="<?= URL_PATH ?>/Assets/js/register.js"></script>
+
+
 </head>
+
 <body>
     <div class="contenedor">
         <h1>Registro</h1>
-        <form id="registerForm"class="formulario_registro" action="" method="post">
+        <form id="registerForm" class="formulario_registro" action="" method="post">
 
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="nombre">
@@ -26,10 +30,9 @@
             <input type="password" id="repassword">
 
             <input type="submit" value="Register">
-     </form>
+    </form>
     <a href="../login">Si ya tienes cuenta, incia sesión</a>
     </div>
-   
-</form>
 </body>
+
 </html>

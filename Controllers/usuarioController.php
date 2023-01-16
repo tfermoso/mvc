@@ -2,9 +2,9 @@
 
 class UsuarioController{
     public function index(){
-echo "estoy en index de usuario";
+        echo " vista usuario index";
     }
     public function ver(){
-        echo "estoy en ver vistas";
+        echo "viendo un usuario";
     }
 }

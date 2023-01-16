@@ -8,4 +8,3 @@ class Controller{
         require_once(__DIR__."/../Views/".$layout.".layout.php");
     }
 }
-?>

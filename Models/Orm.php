@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 class Orm{
     protected $id;
     protected $tabla;
@@ -15,7 +16,7 @@ class Orm{
         $stm=$this->db->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();
         return $stm->fetchAll();
-    }   
+    }  
     public function getAllApi(){
         $stm=$this->db->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();

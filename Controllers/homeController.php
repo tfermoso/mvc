@@ -2,11 +2,9 @@
 
 class HomeController{
     public function index(){
-        echo "hola desde index de Home";
+        echo "Hola desde index del Home";
     }
     public function listar(){
-        echo "hola desde listar del Home";
+        echo "Hola desde listar del Home";
     }
-    
 }
-

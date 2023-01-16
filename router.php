@@ -1,10 +1,11 @@
 <?php
+
 class Router
 {
     private $controller;
     private $method;
-    private $ruta;
     private $param;
+    private $ruta;
 
     public function __construct($ruta = "")
     {
@@ -14,6 +15,7 @@ class Router
 
     public function matchRoute()
     {
+
         $url = explode("/", $this->ruta);
 
         $this->controller = ($url[0] != "" ? $url[0] : "Home") . "Controller";
@@ -44,11 +46,13 @@ class Router
             if ($this->param != null) {
                 $controller->$method($this->param);
             } else {
-                $controller->method();
+                $controller->$method();
             }
         } else {
             $controller->index();
         }
+    }
+}
 
     }
 }
