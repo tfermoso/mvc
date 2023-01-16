@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(193, 172, 212);
+}
+
+h1{
+    text-align: center;
+}
+
+#form{
+    width: 25%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#form label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+#form input{
+    margin-top: 10px;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+}
