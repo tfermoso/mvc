@@ -4,12 +4,14 @@ class Router
 {
     private $controller;
     private $method;
+    private $param;
     private $ruta;
 
     public function __construct($ruta = "")
     {
         $this->ruta = $ruta;
         $this->matchRoute();
+        
     }
 
     public function matchRoute()
@@ -18,6 +20,7 @@ class Router
 
         $this->controller = ($url[0] != "" ? $url[0] : "Home") . "Controller";
         $this->method = isset($url[1]) ? $url[1] : "index";
+        $this->param=isset($url[2])?$url[2]: null;
         
         if($this->controller=="adminController"){
             session_start();
@@ -40,8 +43,15 @@ class Router
         $controller = new $this->controller();
         $method = $this->method;
         if (method_exists($controller, $method)) {
+            if($this->param!=null){
+                $controller->$method($this->param);
+            }
+            else{
+                $controller->$method(); 
+            }
             $controller->$method();
-        } else {
+        }
+        else {
             $controller->index();
         }
     }
