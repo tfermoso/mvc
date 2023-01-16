@@ -5,35 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
     <link rel="stylesheet" href="<?= URL_PATH ?>/Assets/css/register.css">
-    <title>Document</title>
+    <script src="<?= URL_PATH ?>/Assets/js/jquery-3.6.3.min.js"></script>
+    <script src="<?= URL_PATH ?>/Assets/js/register.js"></script>
+
+
 </head>
 
 <body>
-    <form action="action_page.php">
-        <div class="container">
-            <h1>Registro</h1>
-            <p>Por favor rellena el formulario con tus datos.</p>
-            <hr>
+    <div class="contenedor">
+        <h1>Registro</h1>
+        <form id="registerForm" class="formulario_registro" action="" method="post">
 
-            <label for="email"><b>Correo</b></label>
-            <input type="text" placeholder="Escribe tu correo" name="email" id="email" required>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="nombre">
 
-            <label for="psw"><b>Contraseña</b></label>
-            <input type="password" placeholder="Escribir contraseña" name="psw" id="psw" required>
+            <label for="mail">Correo electrónico:</label>
+            <input type="email" id="mail" name="email">
 
-            <label for="psw-repeat"><b>Repetir contraseña</b></label>
-            <input type="password" placeholder="Repetir contraseña" name="psw-repeat" id="psw-repeat" required>
-            <hr>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password">
+            <label for="password">Repite la Contraseña</label>
+            <input type="password" id="repassword">
 
-
-            <button type="submit" class="registerbtn">Registro</button>
-        </div>
-
-        <div class="container signin">
-            <p>Tienes una cuenta? <a href="#">Entrar</a>.</p>
-        </div>
+            <input type="submit" value="Register">
     </form>
+    <a href="../login">Si ya tienes cuenta, incia sesión</a>
+    </div>
 </body>
 
 </html>
