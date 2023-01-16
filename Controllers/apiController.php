@@ -32,7 +32,7 @@ class ApiController
         $datos["id_usuario_destino"] = $_POST["id_usuario_destino"];
         $datos["mensaje"] = $_POST["mensaje"];
         $msg->insertar($datos);
-        var_dump($_POST);
+        //var_dump($_POST);
         $respuesta=array();
         $respuesta["msg"]="mensaje enviado";
         echo json_encode($respuesta);
