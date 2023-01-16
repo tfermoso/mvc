@@ -49,7 +49,6 @@ class Router
             else{
                 $controller->$method(); 
             }
-           
         }
         else {
             $controller->index();
