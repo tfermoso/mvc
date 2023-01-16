@@ -9,14 +9,13 @@ class Router
     public function __construct($ruta = "")
     {
         $this->ruta = $ruta;
-        $this->matchroute();
+        $this->matchRoute();
     }
 
-
-    public function matchroute()
+    public function matchRoute()
     {
-
         $url = explode("/", $this->ruta);
+
         $this->controller = ($url[0] != "" ? $url[0] : "Home") . "Controller";
         $this->method = isset($url[1]) ? $url[1] : "index";
 
@@ -28,10 +27,9 @@ class Router
         }
     }
 
-
     public function run()
     {
-        $controller = new $this->controller();  
+        $controller = new $this->controller();
         $method = $this->method;
         if (method_exists($controller, $method)) {
             $controller->$method();

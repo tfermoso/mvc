@@ -2,13 +2,16 @@
 
 class LoginController
 {
-
     public function index()
     {
-        echo "Login";
+        if (isset($_POST["nombre"])) {
+            echo "recibiendo login";
+        } else {
+            require_once(__DIR__ . './../Views/login.view.php');
+        }
     }
-    public function form()
+    public function register()
     {
-        echo "form login";
+        require_once(__DIR__ . './../Views/register.view.php');
     }
 }
