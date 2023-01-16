@@ -20,6 +20,13 @@ class Orm
         return $stm->fetchAll();
     }
 
+    public function getAllAPI()
+    {
+        $stm = $this->dbconn->prepare("SELECT * FROM {$this->table}");
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public function getById($id)
     {
         $stm = $this->dbconn->prepare("SELECT * FROM {$this->table} WHERE id=:id");
