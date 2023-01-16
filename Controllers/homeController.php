@@ -1,10 +1,14 @@
 <?php
 
-class HomeController{
-    public function index(){
-        echo "Hola desde index del Home";
+class HomeController
+{
+
+    public function index()
+    {
+        echo "Hola desde index de Home";
     }
-    public function listar(){
+    public function listar()
+    {
         echo "Hola desde listar del Home";
     }
 }
