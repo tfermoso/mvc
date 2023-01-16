@@ -12,7 +12,7 @@ class LoginController{
                 session_start();
                 $_SESSION["nombre"] = $usuario["nombre"];
                 $_SESSION["idusuario"] = $usuario["id"];
-                header("Location:".URL_PATH."/home");
+                header("Location:".URL_PATH."/admin");
             }else{
                 $error = "usuario o contraseña incorrecta";
                 require_once(__DIR__.'./../Views/login.view.php');
@@ -31,7 +31,7 @@ class LoginController{
             $datos = array();
             $datos["nombre"] = $_POST["nombre"];
             $datos["email"] = $_POST["email"];
-            $datos["password"] =md5($_POST["nombre"],false);
+            $datos["password"] =md5($_POST["password"],false);
             $usr->insertar($datos);
             header("location");
         }

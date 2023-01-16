@@ -1,16 +1,53 @@
 <?php
+class AdminController extends Controller
+{
+    private $mensajes;
+    public function __construct()
+    {
+        $conn = new Database();
+        $msj = new Mensaje($conn->getConnection());
+        $this->mensajes=$msj->getAllByIdUserDestino($_SESSION["idusuario"]);
+    }
 
-class AdminController{
-    public function index(){
+    public function index()
+    {
         $user_name = $_SESSION["nombre"];
-        require_once(__DIR__.'./../Views/admin.view.php');
+        
+        //require_once(__DIR__ . './../Views/Admin/admin.view.php');
+        $datos=array();
+        $datos["mensajes"]=$this->mensajes;
+        $this->render("Admin/admin",$datos,"Admin/layout/admin");
+    }
+    public function nuevomensaje()
+    {
+        if (isset($_POST["usr_destino"])) {
+        
+            $conn = new Database();
+            $usr = new Mensaje($conn->getConnection());
+            $datos=array();
+            $datos["id_usuario_origen"]=$_SESSION["idusuario"];
+            $datos["id_usuario_destino"]=$_POST["usr_destino"];
+            $datos["mensaje"]=$_POST["mensaje"];
+            $usr->insertar($datos);
+            header("Location:".URL_PATH."/admin");
+        } else {
 
- }
-    public function nuevomensaje(){
-        $user_name = $_SESSION["nombre"];
-        $conn=new Database();
-        $usr=new Usuario($conn->getConnection());
-        $usuarios = $usr->getAllLessMe($_SESSION["id"]);
-        require_once(__DIR__.'./../Views/admin.nuevomensaje.view.php');
+            $user_name = $_SESSION["nombre"];
+            $conn = new Database();
+            $usr = new Usuario($conn->getConnection());
+            $usuarios = $usr->getAllLessMe($_SESSION["idusuario"]);
+            $options = "";
+            foreach ($usuarios as $key => $value) {
+                $options .= "<option value=" . $value['id'] . ">" . $value['nombre'] . "</option>";
+            }
+            $datos=array();
+            $datos["mensajes"]=$this->mensajes;
+            $datos["options"]=$options;
+            $datos["usuarios"]=$usuarios;
+            //require_once(__DIR__ . './../Views/Admin/admin_nuevomensaje.view.php');
+            $this->render("Admin/admin_nuevomensaje",$datos,"Admin/layout/admin");
+
+        }
+    }
 }
-}
+?>

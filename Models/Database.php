@@ -1,6 +1,7 @@
 <?php
 
-class Database{
+class Database
+{
     private $connection;
 
     public function __construct()
@@ -8,15 +9,18 @@ class Database{
         try {
             $url_conexion = "mysql:host=" . HOST . ";dbname=" . DBNAME;
             $this->connection = new PDO($url_conexion, DB_USER, DB_PASSWORD);
-
+            
         } catch (PDOException $pe) {
             $this->connection = null;
+            die("error al conectarme");
         }
     }
-    public function getConnection(){
+    public function getConnection()
+    {
         return $this->connection;
     }
-    public function closeConnection(){
+    public function closeConnection()
+    {
         $this->connection = null;
     }
 }
