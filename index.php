@@ -14,4 +14,3 @@ require_once("./controllers/controller.php");
 $ruta=isset($_GET["route"])?$_GET["route"]:"";
 $route=new Router($ruta);
 $route->run();
-
