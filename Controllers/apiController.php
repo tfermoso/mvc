@@ -21,14 +21,14 @@ class ApiController{
         $conn = new Database();
         $msg = new Mensaje($conn->getConnection());
         $datos = array();
-        $datos["id_usuario_origen"] = $_POST["idusuario"];
-        $datos["id_usuario_destino"] = $_POST["usr_destino"];
+        $datos["id_usuario_origen"] = $_POST["id_usuario"];
+        $datos["id_usuario_destino"] = $_POST["id_usuario_destino"];
         $datos["mensaje"] = $_POST["mensaje"];
+      
         $msg->insertar($datos);
-        $respuesta = array();
-        $respuesta["msg"] = "mensaje enviado";
-        echo json_encode($respuesta);
-
-
+        $res=array();
+        $res["msg"] = "Mensaje enviado";
+        echo json_encode($res);    
+    
     }
 }
