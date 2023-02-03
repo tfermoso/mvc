@@ -16,6 +16,11 @@ class Orm{
         $stm=$this->db->prepare("SELECT * FROM {$this->tabla}");
         $stm->execute();
         return $stm->fetchAll();
+    }  
+    public function getAllApi(){
+        $stm=$this->db->prepare("SELECT * FROM {$this->tabla}");
+        $stm->execute();
+        return $stm->fetchAll(PDO::FETCH_ASSOC);
     }   
     public function getById($id){
         $stm=$this->db->prepare("select * from {$this->tabla} where id=:id");
@@ -39,6 +44,7 @@ class Orm{
         $campos=substr($campos,0,-1).")";
         $valores=substr($valores,0,-1).")";
         $sql=$sql.$campos.$valores;
+
         $stm=$this->db->prepare($sql);
         foreach($data as $key=>$value){
             $stm->bindValue(":{$key}",$value);
